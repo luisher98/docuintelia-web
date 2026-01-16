@@ -105,5 +105,7 @@
 
 /* Hide reCAPTCHA badge (required notice is shown in the form) */
 .grecaptcha-badge {
-  visibility: hidden;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
