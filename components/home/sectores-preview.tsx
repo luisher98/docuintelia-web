@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   Mountain,
   FlaskConical,
@@ -7,7 +6,6 @@ import {
   Ruler,
   Trees,
   Building2,
-  ArrowRight,
 } from "lucide-react";
 
 const sectors = [
@@ -50,7 +48,7 @@ export function SectoresPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto mb-8">
           {sectors.map((sector, index) => (
             <div
               key={index}
@@ -64,14 +62,15 @@ export function SectoresPreview() {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button asChild variant="outline">
-            <Link href="/sectores">
-              Ver todos los sectores
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
+        <p className="text-center text-muted-foreground">
+          ¿Tu sector no aparece?{" "}
+          <Link
+            href="/contacto"
+            className="text-primary font-medium hover:underline"
+          >
+            Consúltanos
+          </Link>
+        </p>
       </div>
     </section>
   );

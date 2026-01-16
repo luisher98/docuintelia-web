@@ -17,7 +17,6 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Funcionalidades", href: "/funcionalidades" },
-  { name: "Sectores", href: "/sectores" },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -27,18 +26,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4">
+        <Link href="/">
           <Image
             src="/logo.png"
             alt="Docuintelia"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
+            width={876}
+            height={285}
+            className="h-14 w-auto"
+            priority
           />
-          <span className="text-xl font-semibold text-foreground">
-            Docuintelia
-          </span>
         </Link>
 
         {/* Desktop Navigation */}

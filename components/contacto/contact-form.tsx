@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { contactFormSchema, ContactFormData } from "@/lib/validations";
+import { useRecaptcha } from "@/lib/use-recaptcha";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -15,6 +16,7 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const { executeRecaptcha } = useRecaptcha();
 
   const {
     register,
@@ -37,12 +39,23 @@ export function ContactForm() {
     setErrorMessage("");
 
     try {
+      // Get reCAPTCHA token
+      const recaptchaToken = await executeRecaptcha("contact_form");
+
+      if (!recaptchaToken) {
+        setStatus("error");
+        setErrorMessage(
+          "Error de verificación. Por favor, inténtalo de nuevo."
+        );
+        return;
+      }
+
       const response = await fetch("/api/contacto", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
 
       const result = await response.json();
@@ -191,6 +204,28 @@ export function ContactForm() {
           "Enviar mensaje"
         )}
       </Button>
+
+      <p className="text-xs text-muted-foreground">
+        Este sitio está protegido por reCAPTCHA y aplican la{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-primary"
+        >
+          Política de Privacidad
+        </a>{" "}
+        y los{" "}
+        <a
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-primary"
+        >
+          Términos de Servicio
+        </a>{" "}
+        de Google.
+      </p>
     </form>
   );
 }

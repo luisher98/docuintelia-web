@@ -102,3 +102,8 @@
     @apply bg-muted-foreground/50;
   }
 }
+
+/* Hide reCAPTCHA badge (required notice is shown in the form) */
+.grecaptcha-badge {
+  visibility: hidden;
+}

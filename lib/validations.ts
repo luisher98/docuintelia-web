@@ -5,9 +5,7 @@ export const contactFormSchema = z.object({
     .string()
     .min(2, "El nombre debe tener al menos 2 caracteres")
     .max(100, "El nombre no puede exceder 100 caracteres"),
-  email: z
-    .string()
-    .email("Por favor, introduce un email válido"),
+  email: z.string().email("Por favor, introduce un email válido"),
   empresa: z
     .string()
     .max(100, "El nombre de empresa no puede exceder 100 caracteres")
@@ -24,4 +22,11 @@ export const contactFormSchema = z.object({
     .max(2000, "El mensaje no puede exceder 2000 caracteres"),
 });
 
+export const contactFormSchemaWithRecaptcha = contactFormSchema.extend({
+  recaptchaToken: z.string().min(1, "Token de verificación requerido"),
+});
+
 export type ContactFormData = z.infer<typeof contactFormSchema>;
+export type ContactFormDataWithRecaptcha = z.infer<
+  typeof contactFormSchemaWithRecaptcha
+>;

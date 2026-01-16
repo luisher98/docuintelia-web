@@ -6,7 +6,6 @@ const navigation = {
   main: [
     { name: "Inicio", href: "/" },
     { name: "Funcionalidades", href: "/funcionalidades" },
-    { name: "Sectores", href: "/sectores" },
     { name: "Contacto", href: "/contacto" },
   ],
   legal: [
@@ -24,15 +23,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="mb-4 inline-block">
               <Image
                 src="/logo.png"
                 alt="Docuintelia"
-                width={32}
-                height={32}
+                width={876}
+                height={285}
                 className="h-8 w-auto"
               />
-              <span className="text-lg font-semibold">Docuintelia</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-md">
               Plataforma de automatización de informes técnicos con inteligencia
