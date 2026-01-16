@@ -1,0 +1,37 @@
+name: Mirror to Personal Repo
+
+on:
+  push:
+    branches:
+      - '**'  # All branches
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper mirroring
+
+      - name: Set up SSH key for authentication
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Mirror all branches and tags
+        run: |
+          set -e
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Add the mirror remote using SSH
+          git remote add mirror git@github.com:luisher98/docuintelia-web.git
+
+          # Push all branches and tags to the mirror repo
+          git push mirror --all --force
+          git push mirror --tags --force

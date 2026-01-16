@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Docuintelia - Marketing Website
+
+Marketing/brochure website for Docuintelia, a platform that automates technical report generation using AI.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Components**: shadcn/ui
+- **Forms**: React Hook Form + Zod
+- **Email**: Resend
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Add your Resend API key and contact email to .env.local
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+├── page.tsx              # Home
+├── funcionalidades/      # Features page
+├── sectores/             # Sectors page
+├── contacto/             # Contact page
+├── legal/                # Legal notice
+├── privacidad/           # Privacy policy
+├── api/contacto/         # Contact form API
+├── sitemap.ts            # Sitemap generation
+└── robots.ts             # Robots.txt
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+components/
+├── layout/               # Header, Footer
+├── home/                 # Home page sections
+├── funcionalidades/      # Feature cards
+├── sectores/             # Sector cards
+├── contacto/             # Contact form
+└── ui/                   # shadcn/ui components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+lib/
+├── email.ts              # Resend email functions
+├── validations.ts        # Zod schemas
+└── utils.ts              # Utility functions
+```
 
-## Deploy on Vercel
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Variable | Description |
+|----------|-------------|
+| `RESEND_API_KEY` | Resend API key for sending emails |
+| `CONTACT_EMAIL_TO` | Email address to receive contact form submissions |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Deploy to Vercel:
+
+```bash
+vercel
+```
+
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+## License
+
+Proprietary - All rights reserved.
