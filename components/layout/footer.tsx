@@ -74,10 +74,10 @@ export function Footer() {
             <div className="mt-4">
               <p className="text-sm text-muted-foreground">
                 <a
-                  href="mailto:info@docuintelia.com"
+                  href="mailto:info@estudiosdelterreno.com"
                   className="hover:text-primary transition-colors"
                 >
-                  info@docuintelia.com
+                  info@estudiosdelterreno.com
                 </a>
               </p>
             </div>
@@ -88,7 +88,16 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Docuintelia. Todos los derechos reservados.
+            &copy; {currentYear}{" "}
+            <a
+              href="https://estudiosdelterreno.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              Estudios del Terreno
+            </a>
+            . Todos los derechos reservados.
           </p>
         </div>
       </div>

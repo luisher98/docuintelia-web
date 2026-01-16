@@ -31,7 +31,7 @@ export default function LegalPage() {
               <strong>Domicilio social:</strong> [Dirección completa]
             </li>
             <li>
-              <strong>Email:</strong> info@docuintelia.com
+              <strong>Email:</strong> info@estudiosdelterreno.com
             </li>
           </ul>
 

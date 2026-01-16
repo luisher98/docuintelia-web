@@ -40,10 +40,10 @@ export default function ContactoPage() {
                   <div>
                     <h3 className="font-semibold">Email directo</h3>
                     <a
-                      href="mailto:info@docuintelia.com"
+                      href="mailto:info@estudiosdelterreno.com"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      info@docuintelia.com
+                      info@estudiosdelterreno.com
                     </a>
                   </div>
                 </div>

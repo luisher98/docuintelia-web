@@ -32,7 +32,7 @@ export default function PrivacidadPage() {
               <strong>Dirección:</strong> [Dirección completa]
             </li>
             <li>
-              <strong>Email:</strong> info@docuintelia.com
+              <strong>Email:</strong> info@estudiosdelterreno.com
             </li>
           </ul>
 
@@ -129,7 +129,7 @@ export default function PrivacidadPage() {
 
           <p>
             Para ejercer estos derechos, puedes contactar con nosotros en{" "}
-            <a href="mailto:info@docuintelia.com">info@docuintelia.com</a>,
+            <a href="mailto:info@estudiosdelterreno.com">info@estudiosdelterreno.com</a>,
             indicando tu solicitud y adjuntando copia de tu documento de
             identidad.
           </p>

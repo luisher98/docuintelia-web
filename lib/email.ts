@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendContactEmail(data: ContactFormData) {
   const { nombre, email, empresa, telefono, mensaje } = data;
 
-  const toEmail = process.env.CONTACT_EMAIL_TO || "info@docuintelia.com";
+  const toEmail = process.env.CONTACT_EMAIL_TO || "info@estudiosdelterreno.com";
 
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
