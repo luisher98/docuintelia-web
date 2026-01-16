@@ -8,9 +8,9 @@ import {
 const solutions = [
   {
     icon: Sparkles,
-    title: "IA que aprende tu estilo",
+    title: "IA personalizable a tu medida",
     description:
-      "El sistema aprende de tus informes anteriores y replica tu estilo de redacción, terminología y estructura preferida.",
+      "Define instrucciones para que la IA genere informes con tu estilo de redacción, terminología y estructura preferida.",
   },
   {
     icon: Settings2,
